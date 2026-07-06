@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 25px;
+            margin: 0;
+        }
+
+        a {
+            font-size: 30px;
+            margin: 10px;
+        }
+
+        li {
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('./partials/navbar') %>
+
+        <h1>Resturant Details</h1>
+        <h2>
+            <%= resturants.name %>
+        </h2>
+        <% if(resturants.isOpen){ %>
+            <p>Resturant is Open</p>
+            <% } else {%>
+                <p>Resturant is Closed</p>
+                <% } %>
+                    <p>Address: <%= resturants.address %>
+                    </p>
+                    <p>Phone Number: <%= resturants.phone %>
+                    </p>
+                    <br>
+                    <p>MENU:</p>
+                    <% for(item of menu){ %>
+                        <ol>
+                            <li>
+                                <p>
+                                    <%= item.name %>
+                                </p>
+                            </li>
+                            <p>
+                                <li>
+                                    Price: <%= item.price %> BD
+                            </p>
+                            </li>
+                            <p>
+                                <li>
+                                    Rating <%= item.rating %>/5
+                            </p>
+                            </li>
+                        </ol>
+                        <% } %>
+</body>
+
+</html>

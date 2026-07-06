@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: 800;
+        }
+
+        li {
+            font-size: 25px;
+        }
+
+        a {
+            font-size: 30px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('./partials/navbar') %>
+
+        <h1>All Resturants</h1>
+        <ol>
+            <% for(oneResturant of resturants) {%>
+                <% if(oneResturant.isOpen){ %>
+                    <li><a href="/resturants/<%=oneResturant.id %>"><%= oneResturant.name %></a></li>
+                    <% } else {%>
+                        <li><a href="/resturants/<%=oneResturant.id %>"><%= oneResturant.name %> - Closed</a></li>
+                        <% } %>
+                            <% } %>
+        </ol>
+</body>
+
+</html>
